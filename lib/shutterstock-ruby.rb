@@ -9,11 +9,10 @@ module ShutterstockRuby
   API_BASE = 'api.shutterstock.com/v2'
 
   class Client
-    attr_reader :videos, :images
+    attr_reader :configuration, :videos, :images
 
-    def initialize(args)
-      configuration = Configuration.new(args)
-
+    def initialize(args = {})
+      @configuration = Configuration.new(args)
       @videos = Videos.new(configuration)
       @images = Images.new(configuration)
     end
