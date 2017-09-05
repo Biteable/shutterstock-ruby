@@ -5,5 +5,11 @@ module ShutterstockRuby
     def search(query, options = {})
       JSON.parse(get('/images/search', { query: query }.merge(options)))
     end
+
+    class << self
+      def search(query, options = {})
+        client.search(query, options)
+      end
+    end
   end
 end

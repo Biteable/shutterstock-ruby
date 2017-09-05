@@ -9,6 +9,15 @@ require 'shutterstock-ruby/videos'
 module ShutterstockRuby
   API_BASE = 'api.shutterstock.com/v2'
 
+  def self.configuration
+    @configuration ||=  Configuration.new({})
+  end
+
+  def self.configure
+    self.configuration ||= Configuration.new({})
+    yield(configuration) if block_given?
+  end
+
   class Client
     attr_reader :configuration, :videos, :images
 

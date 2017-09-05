@@ -24,6 +24,11 @@ module ShutterstockRuby
       RestClient.post(build_url(path), body, add_bearer(options))
     end
 
+    protected
+    def self.client
+      @client ||= new(ShutterstockRuby.configuration)
+    end
+
     private
 
     def build_url(path)

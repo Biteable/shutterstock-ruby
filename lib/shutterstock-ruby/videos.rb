@@ -15,5 +15,19 @@ module ShutterstockRuby
       body = { videos: [ video_id: id ] }.to_json
       JSON.parse(post("/videos/licenses", body, params, options))
     end
+
+    class << self
+      def search(query, options = {})
+        client.search(query, options)
+      end
+
+      def details(id, options = {})
+        client.details(id, options)
+      end
+
+      def purchase(id, subscription_id, size, options = {})
+        client.purchase(id, subscription_id, size, options)
+      end
+    end
   end
 end
