@@ -25,8 +25,8 @@ module ShutterstockRuby
         client.details(id, options)
       end
 
-      def purchase(id, subscription_id, size, options = {})
-        client.purchase(id, subscription_id, size, options)
+      def purchase(id, subscription_id, size, options = {}, metadata = {})
+        client.purchase(id, subscription_id, size, options, metadata)
       end
     end
   end
