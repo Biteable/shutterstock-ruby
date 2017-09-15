@@ -22,7 +22,7 @@ module ShutterstockRuby
     end
 
     def download(licence)
-      JSON.parse(post("/videos/licenses/#{licence}/download", {}))
+      JSON.parse(post("/videos/licenses/#{licence}/downloads", {}.to_json))
     end
 
     class << self
